@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-)-_y6f^(ls*()8wtdh%uf7$c7k=)_2*%u_0@3x1!q5cymf4n$p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['photo_sharing_app.onrender.com']
+ALLOWED_HOSTS = ['photo_sharing_app.onrender.com', 'photoapp-1-tgfn.onrender.com']
 
 
 # Application definition
