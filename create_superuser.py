@@ -2,8 +2,17 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-if not User.objects.filter(username='admin').exists():
-    User.objects.create_superuser('admin', 'admin@example.com', 'adminpass123')
+user, created = User.objects.get_or_create(username='admin', defaults={
+    'email': 'admin@example.com'
+})
+if created:
+    user.set_password('adminpass123')
+    user.is_superuser = True
+    user.is_staff = True
+    user.save()
     print("Superuser created.")
 else:
-    print("Superuser already exists.")
+    user.set_password('adminpass123')  # reset password
+    user.save()
+    print("Superuser password reset.")
+
